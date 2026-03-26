@@ -51,7 +51,7 @@ body {
 
 /* Stile per il tuo logo */
 .brand-logo {
-    max-height: 80px; /* Altezza massima per non renderlo troppo ingombrante */
+    max-height: 240px; /* Altezza massima per non renderlo troppo ingombrante */
     width: auto;
     /* Se il tuo logo è scuro, e vuoi farlo bianco sopra il video, de-commenta la riga sotto: */
     /* filter: brightness(0) invert(1); */ 
