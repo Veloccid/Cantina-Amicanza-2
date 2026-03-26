@@ -1,0 +1,345 @@
+/* ==========================================
+   VARIABILI GLOBALI (Colori caldi, naturali)
+   ========================================== */
+:root {
+    --bg-color: #fdfaf6;      /* Crema, colore della convivialità e del pane */
+    --text-color: #333333;    /* Grigio scuro, non nero assoluto */
+    --primary-color: #3e4a3d; /* Verde oliva/foresta (la terra, le vigne) */
+    --accent-color: #7d2a33;  /* Rosso vino intenso */
+    --light-border: #e2ddd6;  /* Colore per le linee di separazione */
+    
+    --font-title: 'Playfair Display', serif; /* Font elegante per i titoli */
+    --font-body: 'Lato', sans-serif;         /* Font pulito per i testi */
+}
+
+/* Reset base per uniformare i browser */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-body);
+    line-height: 1.7;
+    overflow-x: hidden; /* Nasconde le barre di scorrimento orizzontali */
+}
+
+/* Contenitore standard per centrare i contenuti */
+.container {
+    width: 88%;
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+.center { text-align: center; }
+
+/* ==========================================
+   BARRA DI NAVIGAZIONE E LOGO
+   ========================================== */
+.navbar {
+    position: absolute; /* Rimane fissa in alto sopra al video */
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 0;
+    z-index: 10; /* La mette al livello più alto, sopra ogni cosa */
+}
+
+.nav-container {
+    display: flex;
+    justify-content: center; /* Centra il logo. Se lo vuoi a sinistra usa 'flex-start' */
+}
+
+/* Stile per il tuo logo */
+.brand-logo {
+    max-height: 80px; /* Altezza massima per non renderlo troppo ingombrante */
+    width: auto;
+    /* Se il tuo logo è scuro, e vuoi farlo bianco sopra il video, de-commenta la riga sotto: */
+    /* filter: brightness(0) invert(1); */ 
+}
+
+/* ==========================================
+   HERO SECTION (Video)
+   ========================================== */
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    overflow: hidden;
+}
+
+.hero-video {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%; min-height: 100%;
+    z-index: 1;
+    object-fit: cover;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Velo scuro per far leggere i testi */
+    z-index: 2;
+}
+
+.hero-content { position: relative; z-index: 3; padding: 20px; }
+
+.hero-content h1 {
+    font-family: var(--font-title);
+    font-size: 3.8rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+}
+
+.hero-content p {
+    font-size: 1.25rem;
+    max-width: 700px;
+    margin: 0 auto 2.5rem;
+    font-weight: 300;
+}
+
+/* ==========================================
+   BOTTONI
+   ========================================== */
+.btn {
+    display: inline-block;
+    padding: 18px 36px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    transition: 0.4s ease;
+    border: 1px solid white;
+    color: white;
+}
+
+.btn:hover {
+    background-color: white;
+    color: var(--primary-color);
+}
+
+.btn-solid {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-solid:hover {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: white;
+}
+
+/* ==========================================
+   STILI GLOBALI SEZIONI
+   ========================================== */
+section { padding: 120px 0; }
+
+.subtitle {
+    text-transform: uppercase;
+    color: var(--accent-color);
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.section-title {
+    font-family: var(--font-title);
+    font-size: 2.8rem;
+    margin-bottom: 25px;
+    color: var(--primary-color);
+}
+
+.section-description {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 50px;
+}
+
+/* ==========================================
+   LA NOSTRA STORIA
+   ========================================== */
+.story-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 100px;
+    align-items: center;
+}
+
+.story-text p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    color: #555;
+}
+
+.story-image {
+    height: 550px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid var(--light-border);
+    padding: 15px;
+    background: white;
+}
+
+.story-image img {
+    width: 100%; height: 120%;
+    object-fit: cover;
+}
+
+/* ==========================================
+   SCORRIMENTO BOTTIGLIE / ETICHETTE (Marquee)
+   ========================================== */
+.labels-section {
+    background-color: #ffffff; /* Sfondo bianco per far risaltare le bottiglie */
+    border-top: 1px solid var(--light-border);
+    border-bottom: 1px solid var(--light-border);
+    overflow: hidden; /* Fondamentale: nasconde ciò che esce dallo schermo */
+}
+
+.marquee-wrapper {
+    width: 100%;
+    padding: 20px 0;
+    white-space: nowrap; /* Impedisce alle immagini di andare a capo */
+}
+
+/* Il "binario" dove corrono le immagini */
+.marquee-track {
+    display: inline-flex;
+    gap: 40px; /* Spazio tra una bottiglia e l'altra */
+    /* L'animazione: dura 25 secondi, scorre lineare all'infinito */
+    animation: scrollMarquee 25s linear infinite; 
+}
+
+/* Tocco di eleganza: se l'utente passa il mouse, l'animazione va in pausa */
+.marquee-track:hover {
+    animation-play-state: paused;
+}
+
+.marquee-track img {
+    height: 400px; /* Altezza fissa per tutte le bottiglie */
+    width: auto;
+    object-fit: contain; /* Assicura che la bottiglia non venga tagliata */
+    background-color: var(--bg-color); /* Sfondino color crema per ogni bottiglia */
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05); /* Ombra leggerissima e delicata */
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+/* Piccolo ingrandimento quando si punta il mouse sulla singola bottiglia */
+.marquee-track img:hover {
+    transform: scale(1.05);
+}
+
+/* La magia dell'infinito: sposta il blocco verso sinistra di metà della sua larghezza (essendo le immagini duplicate) */
+@keyframes scrollMarquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-50% - 20px)); } /* -20px compensa metà del gap */
+}
+
+/* ==========================================
+   SERVIZI B2B
+   ========================================== */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    margin-top: 60px;
+}
+
+.service-card {
+    padding: 50px 30px;
+    border: 1px solid var(--light-border);
+    text-align: center;
+    background-color: white;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+}
+
+.card-icon { font-size: 3rem; margin-bottom: 25px; display: block; }
+
+.service-card h3 {
+    font-family: var(--font-title);
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+/* ==========================================
+   TESTIMONIANZE E FOOTER
+   ========================================== */
+.testimonials {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+}
+
+.quote {
+    font-family: var(--font-title);
+    font-size: 2rem;
+    font-style: italic;
+    max-width: 800px;
+    margin: 0 auto 30px;
+}
+
+cite {
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    opacity: 0.8;
+}
+
+footer {
+    padding: 80px 0 40px;
+    background-color: #1a1a1a;
+    color: #888;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 40px;
+}
+
+footer h3 { color: white; font-family: var(--font-title); margin-bottom: 15px; }
+
+/* ==========================================
+   ANIMAZIONI (Classi aggiunte da JS)
+   ========================================== */
+.fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fUp 1.2s ease forwards;
+}
+
+@keyframes fUp { to { opacity: 1; transform: translateY(0); } }
+
+.reveal { opacity: 0; transform: translateY(40px); transition: 1.2s ease; }
+.reveal.active { opacity: 1; transform: translateY(0); }
+
+.delay-1 { animation-delay: 0.3s; transition-delay: 0.2s; }
+.delay-2 { animation-delay: 0.6s; transition-delay: 0.4s; }
+
+/* ==========================================
+   MOBILE RESPONSIVE
+   ========================================== */
+@media (max-width: 768px) {
+    .brand-logo { max-height: 60px; } /* Logo più piccolo su mobile */
+    .hero-content h1 { font-size: 2.5rem; }
+    .story-grid { grid-template-columns: 1fr; gap: 40px; }
+    .section-title { font-size: 2.2rem; }
+    .marquee-track img { height: 300px; } /* Bottiglie più piccole su telefono */
+}
